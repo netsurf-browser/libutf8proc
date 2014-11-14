@@ -81,6 +81,8 @@ extern "C" {
 #define SSIZE_MAX ((size_t)SIZE_MAX/2)
 #endif
 
+#define UTF8PROC_CCC_VIRAMA 9
+
 #define UTF8PROC_NULLTERM  (1<<0)
 #define UTF8PROC_STABLE    (1<<1)
 #define UTF8PROC_COMPAT    (1<<2)
@@ -324,6 +326,12 @@ ssize_t utf8proc_decompose(
  *  If the number of written chars would be bigger than 'bufsize',
  *  the buffer (up to 'bufsize') has inpredictable data, and the needed
  *  buffer size is returned.
+ */
+
+ssize_t utf8proc_normalise(int32_t *buffer, ssize_t length, int options);
+/*
+ *  Reencodes the sequence of unicode characters given by the pointer
+ *  'buffer' and 'length'.  See utf8proc_reencode for further details.
  */
 
 ssize_t utf8proc_reencode(int32_t *buffer, ssize_t length, int options);

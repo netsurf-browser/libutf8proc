@@ -387,7 +387,7 @@ ssize_t utf8proc_decompose(
       if (decomp_result < 0) return decomp_result;
       wpos += decomp_result;
       /* prohibiting integer overflows due to too long strings: */
-      if (wpos < 0 || wpos > SSIZE_MAX/sizeof(int32_t)/2)
+      if (wpos < 0 || wpos > (ssize_t)(SSIZE_MAX/sizeof(int32_t)/2))
         return UTF8PROC_ERROR_OVERFLOW;
     }
   }
@@ -413,7 +413,7 @@ ssize_t utf8proc_decompose(
   return wpos;
 }
 
-ssize_t utf8proc_reencode(int32_t *buffer, ssize_t length, int options) {
+ssize_t utf8proc_normalise(int32_t *buffer, ssize_t length, int options) {
   /* UTF8PROC_NULLTERM option will be ignored, 'length' is never ignored
      ASSERT: 'buffer' has one spare byte of free space at the end! */
   if (options & (UTF8PROC_NLF2LS | UTF8PROC_NLF2PS | UTF8PROC_STRIPCC)) {
@@ -516,6 +516,13 @@ ssize_t utf8proc_reencode(int32_t *buffer, ssize_t length, int options) {
     }
     length = wpos;
   }
+  return length;
+}
+
+ssize_t utf8proc_reencode(int32_t *buffer, ssize_t length, int options) {
+  length = utf8proc_normalise(buffer, length, options);
+  if (length < 0) return length;
+
   {
     ssize_t rpos, wpos = 0;
     int32_t uc;
