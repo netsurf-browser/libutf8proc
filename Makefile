@@ -18,7 +18,7 @@ WARNFLAGS := -Wall -W -Wundef -Wpointer-arith -Wcast-align \
 	-Wmissing-declarations -Wnested-externs
 # Debug builds compile with error warnings
 # BeOS/Haiku standard library headers issue warnings
-#ifneq ($(TARGET),beos)
+#ifneq ($(BUILD),i586-pc-haiku)
 #  WARNFLAGS := $(WARNFLAGS) -Werror
 #endif
 CFLAGS := -I$(CURDIR)/include/libutf8proc/ \
