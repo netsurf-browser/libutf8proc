@@ -42,7 +42,7 @@ ifeq ($(WANT_TEST),yes)
 endif
 
 # Extra installation rules
-I := /include/libutf8proc
+I := /$(INCLUDEDIR)/libutf8proc
 INSTALL_ITEMS := $(INSTALL_ITEMS) $(I):include/libutf8proc/utf8proc.h
 INSTALL_ITEMS := $(INSTALL_ITEMS) /$(LIBDIR)/pkgconfig:lib$(COMPONENT).pc.in
 INSTALL_ITEMS := $(INSTALL_ITEMS) /$(LIBDIR):$(OUTPUT)
