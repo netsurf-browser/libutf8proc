@@ -1,3 +1,9 @@
+#!/bin/make
+#
+# Makefile for libutf8proc
+#
+# Copyright 2009-1015 John-Mark Bell <jmb@netsurf-browser.org>
+
 # Component settings
 COMPONENT := utf8proc
 COMPONENT_VERSION := 1.1.6
@@ -16,13 +22,9 @@ TESTRUNNER = $(BUILDDIR)/test_testrunner$(EXEEXT)
 WARNFLAGS := -Wall -W -Wundef -Wpointer-arith -Wcast-align \
 	-Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes \
 	-Wmissing-declarations -Wnested-externs
-# Debug builds compile with error warnings
-# BeOS/Haiku standard library headers issue warnings
-#ifneq ($(BUILD),i586-pc-haiku)
-#  WARNFLAGS := $(WARNFLAGS) -Werror
-#endif
-CFLAGS := -I$(CURDIR)/include/libutf8proc/ \
-	-I$(CURDIR)/src $(WARNFLAGS) $(CFLAGS)
+
+CFLAGS := -I$(CURDIR)/include/libutf8proc/ -I$(CURDIR)/src \
+	$(WARNFLAGS) $(CFLAGS)
 ifneq ($(GCCVER),2)
   CFLAGS := $(CFLAGS) -std=c99
 else
