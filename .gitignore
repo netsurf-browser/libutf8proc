@@ -25,3 +25,5 @@ valid
 iterate
 case
 /tmp/
+build-*
+Makefile.config.override
