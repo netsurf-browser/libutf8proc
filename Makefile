@@ -24,6 +24,7 @@ WARNFLAGS := -Wall -W -Wundef -Wpointer-arith -Wcast-align \
 	-Wmissing-declarations -Wnested-externs
 
 CFLAGS := -I$(CURDIR)/include/libutf8proc/ -I$(CURDIR)/src \
+	-DUTF8PROC_EXPORTS \
 	$(WARNFLAGS) $(CFLAGS)
 ifneq ($(GCCVER),2)
   CFLAGS := $(CFLAGS) -std=c99
