@@ -7,4 +7,4 @@ Name: libutf8proc
 Description: UTF8 processing
 Version: VERSION
 Libs: -L${libdir} -lutf8proc
-Cflags: -I${includedir}
+Cflags: -I${includedir} -DUTF8PROC_EXPORTS
