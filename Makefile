@@ -6,7 +6,7 @@
 
 # Component settings
 COMPONENT := utf8proc
-COMPONENT_VERSION := 1.3.1
+COMPONENT_VERSION := 1.3.1-2
 # Default to a static library
 COMPONENT_TYPE ?= lib-static
 
