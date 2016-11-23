@@ -482,7 +482,7 @@ UTF8PROC_DLLEXPORT utf8proc_ssize_t utf8proc_decompose(
  *  Reencodes the sequence of unicode characters given by the pointer
  *  'buffer' and 'length'.  See utf8proc_reencode for further details.
  */
-UTF8PROC_DLLEXPORT utf8proc_ssize_t utf8proc_normalise(utf8proc_int32_t *buffer, utf8proc_ssize_t length, utf8proc_option_t options);
+UTF8PROC_DLLEXPORT utf8proc_ssize_t utf8proc_normalize_utf32(utf8proc_int32_t *buffer, utf8proc_ssize_t length, utf8proc_option_t options);
 
 /**
  * Reencodes the sequence of `length` codepoints pointed to by `buffer`
