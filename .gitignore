@@ -27,3 +27,5 @@ test/iterate
 test/case
 test/custom
 /tmp/
+build-*
+Makefile.config.override
