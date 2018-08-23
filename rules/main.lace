@@ -6,7 +6,7 @@ define at_least_contrib group netsurf-contrib
 define is_master ref refs/heads/master
 define is_personal_branch ref ~^refs/heads/${user}/
 define is_tag ref ~^refs/tags/
-define is_release_branch ref ~^refs/heads/release/
+define is_release_branch ref ~^refs/heads/netsurf/
 
 # First up, the basic write ops
 allow "Core and contrib may push content" op_write at_least_contrib
